@@ -43,6 +43,10 @@ public extension StateMachine {
         }
     }
 
+    var isError: Bool { error != nil }
+
+    var isContent: Bool { content != nil }
+
     func contentIfPresent(_ block: (_ content: Content) -> Void) { content.map(block) }
 }
 
