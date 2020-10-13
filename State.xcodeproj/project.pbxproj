@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41998EA025364DA0006816A7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41998E9F25364DA0006816A7 /* Info.plist */; };
 		41EA963F25362DDD005810E8 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA963A25362DDD005810E8 /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		41935220253602AA00BF605D /* State.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = State.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41935224253602AA00BF605D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41998E9F25364DA0006816A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41EA963525362DDD005810E8 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		41EA963625362DDD005810E8 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		41EA963725362DDD005810E8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 				41EA963525362DDD005810E8 /* Package.swift */,
 				41EA963825362DDD005810E8 /* README.md */,
 				41EA963925362DDD005810E8 /* Sources */,
-				41935222253602AA00BF605D /* State */,
 				41935221253602AA00BF605D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,17 +52,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		41935222253602AA00BF605D /* State */ = {
-			isa = PBXGroup;
-			children = (
-				41935224253602AA00BF605D /* Info.plist */,
-			);
-			path = State;
-			sourceTree = "<group>";
-		};
 		41EA963925362DDD005810E8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				41998E9F25364DA0006816A7 /* Info.plist */,
 				41EA963A25362DDD005810E8 /* State.swift */,
 			);
 			path = Sources;
@@ -136,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41998EA025364DA0006816A7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +281,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = State/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
@@ -318,7 +312,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = State/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
