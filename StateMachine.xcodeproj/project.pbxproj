@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41EA963F25362DDD005810E8 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA963A25362DDD005810E8 /* State.swift */; };
+		41EA963F25362DDD005810E8 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EA963A25362DDD005810E8 /* StateMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,7 +17,7 @@
 		41EA963625362DDD005810E8 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		41EA963725362DDD005810E8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		41EA963825362DDD005810E8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		41EA963A25362DDD005810E8 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		41EA963A25362DDD005810E8 /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 		41998EA625364EE8006816A7 /* StateMachine */ = {
 			isa = PBXGroup;
 			children = (
-				41EA963A25362DDD005810E8 /* State.swift */,
+				41EA963A25362DDD005810E8 /* StateMachine.swift */,
 			);
 			path = StateMachine;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41EA963F25362DDD005810E8 /* State.swift in Sources */,
+				41EA963F25362DDD005810E8 /* StateMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
