@@ -5,6 +5,8 @@
 //  Created by Lucas Assis Rodrigues on 13.10.20.
 //
 
+import Foundation
+
 @frozen public enum State<Content, Error> {
     case loading(content: Content?)
     case error(error: Error, content: Content?)

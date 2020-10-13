@@ -8,11 +8,13 @@ let package = Package(
     products: [
         .library(
             name: "State",
-            targets: ["State"]),
+            targets: ["State"]
+        ),
     ],
     targets: [
         .target(
             name: "State",
-            dependencies: [])
+            dependencies: []
+        ),
     ]
 )
