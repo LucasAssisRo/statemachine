@@ -10,7 +10,7 @@
     case error(error: Error, content: Content?)
     case content(content: Content)
 
-    public init(content: Content?, error: Error?) {
+    public init(content: Content? = nil, error: Error? = nil) {
         if let error = error { self = .error(error: error, content: content) }
         else if let content = content { self = .content(content: content) }
         else { self = .loading(content: nil) }

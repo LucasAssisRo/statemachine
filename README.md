@@ -1,2 +1,2 @@
 # state
-Swift implementation of a generic state machine
+Swift implementation of a generic state machine.
