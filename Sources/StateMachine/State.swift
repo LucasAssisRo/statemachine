@@ -42,6 +42,8 @@ public extension StateMachine {
         case .error, .content: return false
         }
     }
+
+    func contentIfPresent(_ block: (_ content: Content) -> Void) { content.map(block) }
 }
 
 // MARK: Mapping
