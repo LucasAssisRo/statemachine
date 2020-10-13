@@ -95,9 +95,9 @@ public extension StateMachine {
 
 public extension StateMachine {
     func receivingLoading() -> Self { .loading(content: content) }
-    func receiving(toContent newContent: Content) -> Self { .content(content: newContent) }
-    func receiving(toError newError: Error) -> Self { .error(error: newError, content: content) }
-    func purgingContentAndERror() -> Self { .loading(content: nil) }
+    func receiving(content newContent: Content) -> Self { .content(content: newContent) }
+    func receiving(error newError: Error) -> Self { .error(error: newError, content: content) }
+    func purgingContentAndError() -> Self { .loading(content: nil) }
 }
 
 // MARK: - Equatable
@@ -131,10 +131,10 @@ public extension StateMachine where Error: Swift.Error {
         }
     }
 
-    func switching(toContentOrErrorFrom result: Result<Content, Error>) -> Self {
+    func receiving(result: Result<Content, Error>) -> Self {
         switch result {
-        case let .success(content): return receiving(toContent: content)
-        case let .failure(error): return receiving(toError: error)
+        case let .success(content): return receiving(content: content)
+        case let .failure(error): return receiving(error: error)
         }
     }
 }
@@ -147,7 +147,7 @@ public extension StateMachine where Content: Decodable {
         catch { self = .error(error: mapError(error), content: content) }
     }
 
-    func recieving(data: Data, mapError: (Swift.Error) -> Error) -> Self {
+    func receiving(data: Data, mapError: (Swift.Error) -> Error) -> Self {
         do { return .content(content: try JSONDecoder().decode(Content.self, from: data)) }
         catch { return .error(error: mapError(error), content: content) }
     }
@@ -155,7 +155,6 @@ public extension StateMachine where Content: Decodable {
 
 public extension StateMachine where Content: Decodable, Error == Swift.Error {
     mutating func received(data: Data) { self.received(data: data, mapError: { $0 }) }
-
-    func recieving(data: Data) -> Self { self.recieving(data: data, mapError: { $0 }) }
+    func receiving(data: Data) -> Self { self.receiving(data: data, mapError: { $0 }) }
 }
 
