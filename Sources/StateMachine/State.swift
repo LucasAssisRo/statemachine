@@ -1,13 +1,13 @@
 //
-//  State.swift
-//  State
+//  StateMachine.swift
+//  StateMachine
 //
 //  Created by Lucas Assis Rodrigues on 13.10.20.
 //
 
 import Foundation
 
-@frozen public enum State<Content, Error> {
+@frozen public enum StateMachine<Content, Error> {
     case loading(content: Content?)
     case error(error: Error, content: Content?)
     case content(content: Content)
@@ -21,7 +21,7 @@ import Foundation
 
 // MARK: - Unwrapped
 
-public extension State {
+public extension StateMachine {
     var content: Content? {
         switch self {
         case let .loading(content?), let .error(_, content?), let .content(content): return content
@@ -46,9 +46,9 @@ public extension State {
 
 // MARK: Mapping
 
-public extension State {
-    func map<TransformedContent>(_ transform: (Content) -> TransformedContent) -> State<TransformedContent, Error> {
-        let newState: State<TransformedContent, Error>
+public extension StateMachine {
+    func map<TransformedContent>(_ transform: (Content) -> TransformedContent) -> StateMachine<TransformedContent, Error> {
+        let newState: StateMachine<TransformedContent, Error>
         switch self {
         case let .loading(content): newState = .loading(content: content.map(transform))
         case let .error(error, content): newState = .error(error: error, content: content.map(transform))
@@ -57,8 +57,8 @@ public extension State {
         return newState
     }
 
-    func compactMap<TransformedContent>(_ transform: (Content?) -> TransformedContent) -> State<TransformedContent, Error> {
-        let newState: State<TransformedContent, Error>
+    func compactMap<TransformedContent>(_ transform: (Content?) -> TransformedContent) -> StateMachine<TransformedContent, Error> {
+        let newState: StateMachine<TransformedContent, Error>
         switch self {
         case let .loading(content): newState = .loading(content: transform(content))
         case let .error(error, content): newState = .error(error: error, content: transform(content))
@@ -67,8 +67,8 @@ public extension State {
         return newState
     }
 
-    func mapError<TransformedError>(_ transform: (Error) -> TransformedError) -> State<Content, TransformedError> {
-        let newState: State<Content, TransformedError>
+    func mapError<TransformedError>(_ transform: (Error) -> TransformedError) -> StateMachine<Content, TransformedError> {
+        let newState: StateMachine<Content, TransformedError>
         switch self {
         case let .loading(content): newState = .loading(content: content)
         case let .error(error, content): newState = .error(error: transform(error), content: content)
@@ -80,18 +80,18 @@ public extension State {
 
 // MARK: - Switch Mutating
 
-public extension State {
+public extension StateMachine {
     mutating func receivedLoading() { self = .loading(content: content) }
     mutating func received(content: Content) { self = .content(content: content) }
     mutating func received(error: Error) { self = .error(error: error, content: content) }
 
-    /// Completely drops current data and restarts the state on empty loading.
+    /// Completely drops current data and restarts the StateMachine on empty loading.
     mutating func purgeContentAndError() { self = .loading(content: nil) }
 }
 
 // MARK: - Switch Non-mutating
 
-public extension State {
+public extension StateMachine {
     func receivingLoading() -> Self { .loading(content: content) }
     func receiving(toContent newContent: Content) -> Self { .content(content: newContent) }
     func receiving(toError newError: Error) -> Self { .error(error: newError, content: content) }
@@ -100,25 +100,25 @@ public extension State {
 
 // MARK: - Equatable
 
-extension State: Equatable where Content: Equatable, Error: Equatable {}
+extension StateMachine: Equatable where Content: Equatable, Error: Equatable {}
 
 // MARK: - Hashable
 
-extension State: Hashable where Content: Hashable, Error: Hashable {}
+extension StateMachine: Hashable where Content: Hashable, Error: Hashable {}
 
-// MARK: - State + Never
+// MARK: - StateMachine + Never
 
-/// State that never fails.
-public typealias SafeState<Content> = State<Content, Never>
+/// StateMachine that never fails.
+public typealias SafeState<Content> = StateMachine<Content, Never>
 
-public extension State where Content == Never {
+public extension StateMachine where Content == Never {
     static var loading: Self { .loading(content: nil) }
     static func error(error: Error) -> Self { .error(error: error, content: nil) }
 }
 
-// MARK: - State + Result
+// MARK: - StateMachine + Result
 
-public extension State where Error: Swift.Error {
+public extension StateMachine where Error: Swift.Error {
     /// Helper method to bind a `Result`. Calls `receivedContent` on `success` and `receivedError` on `failure`.
     ///
     /// - Parameter result: `Result` value being bound.
@@ -137,9 +137,9 @@ public extension State where Error: Swift.Error {
     }
 }
 
-// MARK: - State + Decoding
+// MARK: - StateMachine + Decoding
 
-public extension State where Content: Decodable {
+public extension StateMachine where Content: Decodable {
     mutating func received(data: Data, mapError: (Swift.Error) -> Error) {
         do { self = .content(content: try JSONDecoder().decode(Content.self, from: data)) }
         catch { self = .error(error: mapError(error), content: content) }
@@ -151,7 +151,7 @@ public extension State where Content: Decodable {
     }
 }
 
-public extension State where Content: Decodable, Error == Swift.Error {
+public extension StateMachine where Content: Decodable, Error == Swift.Error {
     mutating func received(data: Data) { self.received(data: data, mapError: { $0 }) }
 
     func recieving(data: Data) -> Self { self.recieving(data: data, mapError: { $0 }) }

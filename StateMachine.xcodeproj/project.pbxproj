@@ -11,7 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		41935220253602AA00BF605D /* State.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = State.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41935220253602AA00BF605D /* StateMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StateMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41998EA925364F60006816A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41EA963525362DDD005810E8 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		41EA963625362DDD005810E8 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -47,23 +47,23 @@
 		41935221253602AA00BF605D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				41935220253602AA00BF605D /* State.framework */,
+				41935220253602AA00BF605D /* StateMachine.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		41998EA625364EE8006816A7 /* State */ = {
+		41998EA625364EE8006816A7 /* StateMachine */ = {
 			isa = PBXGroup;
 			children = (
 				41EA963A25362DDD005810E8 /* State.swift */,
 			);
-			path = State;
+			path = StateMachine;
 			sourceTree = "<group>";
 		};
 		41EA963925362DDD005810E8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				41998EA625364EE8006816A7 /* State */,
+				41998EA625364EE8006816A7 /* StateMachine */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -81,9 +81,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4193521F253602AA00BF605D /* State */ = {
+		4193521F253602AA00BF605D /* StateMachine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 41935228253602AA00BF605D /* Build configuration list for PBXNativeTarget "State" */;
+			buildConfigurationList = 41935228253602AA00BF605D /* Build configuration list for PBXNativeTarget "StateMachine" */;
 			buildPhases = (
 				4193521B253602AA00BF605D /* Headers */,
 				4193521C253602AA00BF605D /* Sources */,
@@ -94,9 +94,9 @@
 			);
 			dependencies = (
 			);
-			name = State;
+			name = StateMachine;
 			productName = State;
-			productReference = 41935220253602AA00BF605D /* State.framework */;
+			productReference = 41935220253602AA00BF605D /* StateMachine.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +113,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4193521A253602AA00BF605D /* Build configuration list for PBXProject "State" */;
+			buildConfigurationList = 4193521A253602AA00BF605D /* Build configuration list for PBXProject "StateMachine" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,7 +126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4193521F253602AA00BF605D /* State */,
+				4193521F253602AA00BF605D /* StateMachine */,
 			);
 		};
 /* End PBXProject section */
@@ -339,7 +339,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4193521A253602AA00BF605D /* Build configuration list for PBXProject "State" */ = {
+		4193521A253602AA00BF605D /* Build configuration list for PBXProject "StateMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				41935226253602AA00BF605D /* Debug */,
@@ -348,7 +348,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		41935228253602AA00BF605D /* Build configuration list for PBXNativeTarget "State" */ = {
+		41935228253602AA00BF605D /* Build configuration list for PBXNativeTarget "StateMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				41935229253602AA00BF605D /* Debug */,

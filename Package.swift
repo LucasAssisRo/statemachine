@@ -4,16 +4,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "State",
+    name: "StateMachine",
     products: [
         .library(
-            name: "State",
-            targets: ["State"]
+            name: "StateMachine",
+            targets: ["StateMachine"]
         ),
     ],
     targets: [
         .target(
-            name: "State",
+            name: "StateMachine",
             dependencies: []
         ),
     ]
