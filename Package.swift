@@ -4,17 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "StateMachine",
-    products: [
-        .library(
-            name: "StateMachine",
-            targets: ["StateMachine"]
-        ),
-    ],
-    targets: [
-        .target(
-            name: "StateMachine",
-            dependencies: []
-        ),
-    ]
+  name: "StateMachine",
+  products: [
+    .library(
+      name: "StateMachine",
+      targets: ["StateMachine"]
+    ),
+  ],
+  targets: [
+    .target(
+      name: "StateMachine",
+      dependencies: []
+    ),
+  ]
 )
